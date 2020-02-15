@@ -1,14 +1,63 @@
 <template>
-  <section class="container">
-    <div class="text-red-700">test tesst2</div>
-  </section>
+  <div class="mt-5">
+    <sort-tool/>
+    <template v-for="(item, index) in getPosts.data">
+      <post-item :key="'post_' + index + '_' + item.id"
+                 :data="item" />
+    </template>
+    <template v-if="!getLoading">
+      <client-only>
+        <infinite-loading @distance="1" @infinite="infiniteLoader">
+          <div slot="no-more" class="my-5">
+            <span class="my-5 text-gray-500">
+                Больше нет записей :)
+            </span>
+          </div>
+          <div slot="no-results">
+            <span class="my-5 text-gray-500">
+                Нет данных :/
+            </span>
+          </div>
+        </infinite-loading>
+      </client-only>
+    </template>
+  </div>
 </template>
 
 <script>
 
-export default {
-  components: {}
-}
+  import InfiniteLoading from 'vue-infinite-loading';
+  import SortTool from "../components/posts/SortTool";
+  import PostItem from "../components/posts/PostItem";
+  import { mapGetters, mapActions } from "vuex";
+
+  export default {
+    components: {
+      PostItem,
+      SortTool,
+      InfiniteLoading,
+    },
+    data() {
+      return {}
+    },
+    created() {
+      this.fetchPosts();
+    },
+    // computed: {...mapGetters(["getPosts", "getLoading"])},
+    computed: {
+      ...mapGetters({
+        getPosts: 'modules/posts/getPosts',
+        getLoading: 'modules/posts/getLoading'
+      })
+    },
+    methods: {
+      // ...mapActions(['fetchPosts', 'infiniteLoader']),
+      ...mapActions({
+        fetchPosts: 'modules/posts/fetchPosts',
+        infiniteLoader: 'modules/posts/infiniteLoader'
+      }),
+    }
+  }
 </script>
 
 <style>

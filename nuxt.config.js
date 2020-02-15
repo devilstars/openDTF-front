@@ -37,6 +37,15 @@ module.exports = {
   },
   buildModules: [
     '@nuxtjs/tailwindcss'
-  ]
+  ],
+  modules: [
+    '@nuxtjs/axios',
+  ],
+  axios: {
+    // proxyHeaders: false
+    baseURL: 'http://opendtf.test/api',
+    // API_HOST: 'http://opendtf.test',
+    // API_PREFIX: 'api'
+  }
 }
 
