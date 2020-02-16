@@ -40,10 +40,10 @@
     data() {
       return {}
     },
-    created() {
-      this.fetchPosts();
+    async fetch ({ store, params }) {
+      await store.dispatch('modules/posts/fetchPosts');
     },
-    // computed: {...mapGetters(["getPosts", "getLoading"])},
+    created() {},
     computed: {
       ...mapGetters({
         getPosts: 'modules/posts/getPosts',
@@ -51,7 +51,6 @@
       })
     },
     methods: {
-      // ...mapActions(['fetchPosts', 'infiniteLoader']),
       ...mapActions({
         fetchPosts: 'modules/posts/fetchPosts',
         infiniteLoader: 'modules/posts/infiniteLoader'
