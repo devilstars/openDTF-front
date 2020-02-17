@@ -11,7 +11,9 @@
                                 v-382.5C612,72.503,577.747,38.25,535.5,38.25z"/>
             </g>
         </svg>
-        Войти
+        <span class="hidden sm:inline-block">
+            Войти
+        </span>
     </a>
 </template>
 
