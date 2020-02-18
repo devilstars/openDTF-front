@@ -9,7 +9,7 @@
         </div>
       </div>
       <div class="w-3/5 pl-6 pr-6">
-        <div class="flex">
+        <div class="flex h-full">
           <div class="sm:w-1/2 md:w-1/2">
 <!--            <div class="hidden sm:block">-->
               <header-search/>
@@ -18,7 +18,7 @@
 
 <!--            </div>-->
           </div>
-          <div class="w-1/2 hidden sm:block flex">
+          <div class="w-1/2 hidden flex sm:flex">
             <header-add-post/>
           </div>
         </div>
