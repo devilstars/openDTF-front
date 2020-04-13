@@ -1,5 +1,5 @@
 <template>
-    <a href="#" class="text-gray-800 inline-flex items-center h-10 font-semibold hover:text-purple-500 group">
+    <a href="#" class="ml-3 text-gray-800 inline-flex items-center h-10 font-semibold hover:text-purple-500 group">
         <svg x="0px" y="0px" width="612px" height="612px" viewBox="0 0 612 612" class="text-gray-600 h-8 w-8 fill-current mr-2 group-hover:text-purple-500">
             <g id="_x36__30_">
                 <path d="M331.685,425.378c-7.478,7.479-7.478,19.584,0,27.043c7.479,7.478,19.584,7.478,27.043,0l131.943-131.962
