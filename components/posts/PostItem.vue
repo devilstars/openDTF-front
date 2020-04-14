@@ -1,55 +1,63 @@
 <template>
-    <div class="bg-white border mb-5">
-        <div class="flex items-center px-3 py-2">
-            <a href="#" class="inline-flex text-gray-700 font-semibold hover:text-purple-600">
-                <img src="https://api.adorable.io/avatars/40/1.png" alt="Название #1" class="h-6 mr-2" loading="lazy">
-                Название #1
-            </a>
-            <a href="#" class="inline-flex ml-5 text-sm text-gray-700 hover:text-purple-600">
-                Имя Автора
-            </a>
-            <nuxt-link :to="{ name: 'category-id-post', params: {category: 'test-category', id: 1, post: 'test'} }" class="inline-flex ml-5 text-sm text-gray-500 hover:text-purple-600" title="17 декабря 2019 15:25">
-                {{ formatDate(data.created_at) }}
-            </nuxt-link>
-            <a href="#" class="ml-auto">
-                <svg class="h-6 w-6 text-purple-300 hover:text-purple-700 fill-current" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 60 60" xml:space="preserve">
+  <div class="bg-white border mb-5">
+    <div class="flex px-3 py-2">
+      <div class="w-5/6 flex-wrap flex items-center">
+        <a href="#" class="inline-flex text-gray-700 font-semibold hover:text-purple-600">
+          <img src="https://api.adorable.io/avatars/40/1.png" alt="Название #1" class="h-6 mr-2" loading="lazy">
+          Название #1
+        </a>
+        <a href="#" class="inline-flex text-sm text-gray-700 hover:text-purple-600">
+          Имя Автора
+        </a>
+        <nuxt-link :to="{ name: 'category-id-post', params: {category: 'test-category', id: 1, post: 'test'} }"
+                   class="w-full tm-w-initial inline-flex mt-2 lg:mt-0 ml-0 lg:ml-5 text-sm text-gray-500 hover:text-purple-600" title="17 декабря 2019 15:25">
+          {{ formatDate(data.created_at) }}
+        </nuxt-link>
+      </div>
+      <div class="w-1/6 flex">
+        <a href="#" class="ml-auto">
+          <svg class="h-6 w-6 text-purple-300 hover:text-purple-700 fill-current" version="1.1"
+               xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+               viewBox="0 0 60 60" xml:space="preserve">
                     <g>
                         <path d="M18,26c-2.206,0-4,1.794-4,4s1.794,4,4,4s4-1.794,4-4S20.206,26,18,26z M18,32c-1.103,0-2-0.897-2-2s0.897-2,2-2
                             s2,0.897,2,2S19.103,32,18,32z"/>
-                        <path d="M30,26c-2.206,0-4,1.794-4,4s1.794,4,4,4s4-1.794,4-4S32.206,26,30,26z M30,32c-1.103,0-2-0.897-2-2s0.897-2,2-2
+                      <path d="M30,26c-2.206,0-4,1.794-4,4s1.794,4,4,4s4-1.794,4-4S32.206,26,30,26z M30,32c-1.103,0-2-0.897-2-2s0.897-2,2-2
                             s2,0.897,2,2S31.103,32,30,32z"/>
-                        <path d="M46,30c0-2.206-1.794-4-4-4s-4,1.794-4,4s1.794,4,4,4S46,32.206,46,30z M42,32c-1.103,0-2-0.897-2-2s0.897-2,2-2
+                      <path d="M46,30c0-2.206-1.794-4-4-4s-4,1.794-4,4s1.794,4,4,4S46,32.206,46,30z M42,32c-1.103,0-2-0.897-2-2s0.897-2,2-2
                             s2,0.897,2,2S43.103,32,42,32z"/>
-                        <path d="M2.414,30l13.293-13.293c0.391-0.391,0.391-1.023,0-1.414s-1.023-0.391-1.414,0l-14,14c-0.391,0.391-0.391,1.023,0,1.414
+                      <path d="M2.414,30l13.293-13.293c0.391-0.391,0.391-1.023,0-1.414s-1.023-0.391-1.414,0l-14,14c-0.391,0.391-0.391,1.023,0,1.414
                             l14,14C14.488,44.902,14.744,45,15,45s0.512-0.098,0.707-0.293c0.391-0.391,0.391-1.023,0-1.414L2.414,30z"/>
-                        <path d="M59.707,29.293l-14-14c-0.391-0.391-1.023-0.391-1.414,0s-0.391,1.023,0,1.414L57.586,30L44.293,43.293
+                      <path d="M59.707,29.293l-14-14c-0.391-0.391-1.023-0.391-1.414,0s-0.391,1.023,0,1.414L57.586,30L44.293,43.293
                             c-0.391,0.391-0.391,1.023,0,1.414C44.488,44.902,44.744,45,45,45s0.512-0.098,0.707-0.293l14-14
                             C60.098,30.316,60.098,29.684,59.707,29.293z"/>
                     </g>
                 </svg>
-            </a>
-        </div>
-        <div class="px-3 py-2 pt-0">
-            <h3 class="text-2xl font-semibold">
-                <nuxt-link :to="{ name: 'category-id-post', params: {category: 'test-category', id: 1, post: 'test'} }">
-                    {{ data.title }}
-                </nuxt-link>
-            </h3>
-        </div>
-        <div class="mt-4">
-            <nuxt-link :to="{ name: 'category-id-post', params: {category: 'test-category', id: 1, post: 'test'} }">
-                <img :src="data.teaser" alt="">
-            </nuxt-link>
-        </div>
-        <div class="mt-2 px-3 py-2">
-            <p>
-                {{ data.body }}
-            </p>
-        </div>
-        <div class="mt-2 px-3 py-2 flex">
-            <a href="#" class="inline-flex align-middle text-gray-500 hover:text-purple-600 mr-4">
-                <svg class="w-6 h-6 fill-current mr-1" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                     viewBox="0 0 511.999 511.999" xml:space="preserve">
+        </a>
+      </div>
+    </div>
+    <div class="px-3 py-2 pt-0">
+      <h3 class="text-2xl font-semibold">
+        <nuxt-link :to="{ name: 'category-id-post', params: {category: 'test-category', id: 1, post: 'test'} }">
+          {{ data.title }}
+        </nuxt-link>
+      </h3>
+    </div>
+    <div class="mt-4">
+      <nuxt-link :to="{ name: 'category-id-post', params: {category: 'test-category', id: 1, post: 'test'} }">
+        <img :src="data.teaser" alt="">
+      </nuxt-link>
+    </div>
+    <div class="mt-2 px-3 py-2">
+      <p>
+        {{ data.body }}
+      </p>
+    </div>
+    <div class="mt-2 px-3 py-2 flex">
+      <a href="#" class="inline-flex align-middle text-gray-500 hover:text-purple-600 mr-4">
+        <svg class="w-6 h-6 fill-current mr-1" version="1.1" xmlns="http://www.w3.org/2000/svg"
+             xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+             viewBox="0 0 511.999 511.999" xml:space="preserve">
                     <g>
                         <path d="M510.156,401.843L480.419,315.3c14.334-29.302,21.909-61.89,21.96-94.679c0.088-57.013-21.97-110.92-62.112-151.79
                             C400.117,27.953,346.615,4.942,289.615,4.039C230.51,3.105,174.954,25.587,133.187,67.353
@@ -68,34 +76,36 @@
                             c100.936,1.601,182.926,85.068,182.77,186.063c-0.047,30.102-7.468,59.995-21.461,86.446c-1.97,3.723-2.31,8.095-0.942,12.078
                             l31.835,92.648C481.732,412.905,481.494,413.932,480.628,414.797z"/>
                     </g>
-                    <g>
+          <g>
                         <path d="M376.892,139.512h-181.56c-8.416,0-15.238,6.823-15.238,15.238c0,8.416,6.823,15.238,15.238,15.238h181.56
                             c8.416,0,15.238-6.823,15.238-15.238C392.13,146.335,385.308,139.512,376.892,139.512z"/>
                     </g>
-                    <g>
+          <g>
                         <path d="M376.892,202.183h-181.56c-8.416,0-15.238,6.823-15.238,15.238s6.823,15.238,15.238,15.238h181.56
                             c8.416,0,15.238-6.823,15.238-15.238S385.308,202.183,376.892,202.183z"/>
                     </g>
-                    <g>
+          <g>
                         <path d="M307.004,264.852H195.331c-8.416,0-15.238,6.823-15.238,15.238c0,8.416,6.823,15.238,15.238,15.238h111.672
                             c8.416,0,15.238-6.823,15.238-15.238C322.241,271.675,315.42,264.852,307.004,264.852z"/>
                     </g>
                 </svg>
-                111
-            </a>
-            <a href="#" class="inline-flex align-middle text-gray-500 hover:text-purple-600 mr-4">
-                <svg class="w-6 h-6 fill-current mr-1" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                     viewBox="0 0 251.986 251.986" xml:space="preserve">
+        111
+      </a>
+      <a href="#" class="inline-flex align-middle text-gray-500 hover:text-purple-600 mr-4">
+        <svg class="w-6 h-6 fill-current mr-1" version="1.1" xmlns="http://www.w3.org/2000/svg"
+             xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+             viewBox="0 0 251.986 251.986" xml:space="preserve">
                     <path d="M200.838,42.271V15H51.148v208.014l74.845-52.908l74.845,52.908V78.488h15v173.499l-89.845-63.511l-89.845,63.511V0h179.689
                         v57.271H70.327v-15H200.838z"/>
                 </svg>
-                33
-            </a>
-            <div class="inline-flex align-middle ml-auto">
-                <a href="#" class="flex items-center text-gray-500 hover:text-red-600">
-                    <svg class="w-4 h-4 fill-current" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                         width="284.929px" height="284.929px" viewBox="0 0 284.929 284.929"
-                         xml:space="preserve">
+        33
+      </a>
+      <div class="inline-flex align-middle ml-auto">
+        <a href="#" class="flex items-center text-gray-500 hover:text-red-600">
+          <svg class="w-4 h-4 fill-current" version="1.1" xmlns="http://www.w3.org/2000/svg"
+               xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+               width="284.929px" height="284.929px" viewBox="0 0 284.929 284.929"
+               xml:space="preserve">
                         <g>
                             <path d="M282.082,76.511l-14.274-14.273c-1.902-1.906-4.093-2.856-6.57-2.856c-2.471,0-4.661,0.95-6.563,2.856L142.466,174.441
                                 L30.262,62.241c-1.903-1.906-4.093-2.856-6.567-2.856c-2.475,0-4.665,0.95-6.567,2.856L2.856,76.515C0.95,78.417,0,80.607,0,83.082
@@ -103,14 +113,15 @@
                                 c1.902-1.903,2.847-4.093,2.847-6.565C284.929,80.607,283.984,78.417,282.082,76.511z"/>
                         </g>
                     </svg>
-                </a>
-                <span class="mx-3 font-semibold text-gray-500">
+        </a>
+        <span class="mx-3 font-semibold text-gray-500">
                     99
                 </span>
-                <a href="#" class="flex items-center text-gray-500 hover:text-green-600">
-                    <svg class="w-4 h-4 fill-current" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                         width="284.929px" height="284.929px" viewBox="0 0 284.929 284.929"
-                         xml:space="preserve">
+        <a href="#" class="flex items-center text-gray-500 hover:text-green-600">
+          <svg class="w-4 h-4 fill-current" version="1.1" xmlns="http://www.w3.org/2000/svg"
+               xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+               width="284.929px" height="284.929px" viewBox="0 0 284.929 284.929"
+               xml:space="preserve">
                         <g>
                             <path d="M282.082,195.285L149.028,62.24c-1.901-1.903-4.088-2.856-6.562-2.856s-4.665,0.953-6.567,2.856L2.856,195.285
                                 C0.95,197.191,0,199.378,0,201.853c0,2.474,0.953,4.664,2.856,6.566l14.272,14.271c1.903,1.903,4.093,2.854,6.567,2.854
@@ -119,29 +130,33 @@
                                 C284.929,199.378,283.984,197.188,282.082,195.285z"/>
                         </g>
                     </svg>
-                </a>
-            </div>
-        </div>
+        </a>
+      </div>
     </div>
+  </div>
 </template>
 
 <script>
-    import dayjs from 'dayjs'
-    import 'dayjs/locale/ru'
+  import dayjs from 'dayjs'
+  import 'dayjs/locale/ru'
 
-    export default {
-        name: "PostItem",
-        props: [
-            'data'
-        ],
-        methods: {
-            formatDate(date) {
-                return dayjs(date).locale('ru').format('DD MMMM YYYY HH:mm')
-            }
-        },
-    }
+  export default {
+    name: "PostItem",
+    props: [
+      'data'
+    ],
+    methods: {
+      formatDate(date) {
+        return dayjs(date).locale('ru').format('DD MMMM YYYY HH:mm')
+      }
+    },
+  }
 </script>
 
 <style scoped>
-
+  @media all and (min-width: 1024px) {
+    .tm-w-initial {
+      width: initial;
+    }
+  }
 </style>
