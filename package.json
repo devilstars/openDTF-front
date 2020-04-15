@@ -16,6 +16,7 @@
     "@nuxtjs/axios": "^5.9.7",
     "dayjs": "^1.8.24",
     "nuxt": "^2.12.2",
+    "vue-click-outside": "^1.1.0",
     "vue-infinite-loading": "^2.4.5"
   },
   "devDependencies": {

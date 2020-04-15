@@ -2,7 +2,7 @@
   <div class="bg-white border mb-5">
     <div class="flex px-3 py-2">
       <div class="w-5/6 flex-wrap flex items-center">
-        <a href="#" class="inline-flex text-gray-700 font-semibold hover:text-purple-600">
+        <a href="#" class="inline-flex mr-4 text-gray-700 font-semibold hover:text-purple-600">
           <img src="https://api.adorable.io/avatars/40/1.png" alt="Название #1" class="h-6 mr-2" loading="lazy">
           Название #1
         </a>
