@@ -50,6 +50,7 @@ module.exports = {
   },
   plugins: [
     { src: '~/plugins/config.js', ssr: true },
+    { src: '~/plugins/axios.js', ssr: true },
   ],
   toast: {
     theme: "outline",

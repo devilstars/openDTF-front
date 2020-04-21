@@ -104,9 +104,13 @@
             console.log(response.data);
           }).catch(error => {
             console.log(error.response.data);
+            console.log(error.response);
             if (error.response.status === 422) {
               this.errors = error.response.data.errors;
               this.$toast.error('Проверьте введённые данные')
+            }
+            if (error.response.status === 404) {
+              this.$toast.error(error.response.data.message)
             }
         });
       },
