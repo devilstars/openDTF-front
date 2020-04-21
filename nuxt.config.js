@@ -46,6 +46,9 @@ module.exports = {
     baseURL: 'http://opendtf.test/api',
     // API_HOST: 'http://opendtf.test',
     // API_PREFIX: 'api'
-  }
+  },
+  plugins: [
+    { src: '~/plugins/config.js', ssr: true },
+  ],
 }
 

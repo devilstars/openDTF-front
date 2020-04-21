@@ -72,7 +72,6 @@
 
 <script>
   import {mapActions, mapGetters} from 'vuex';
-  import config from "../../plugins";
   import AppFormInput from "./form/AppFormInput";
 
   export default {

@@ -1,4 +1,4 @@
-import config from '../../plugins/index'
+import Vue from 'vue';
 
 export const state = () => ({
   page: 2,
@@ -32,7 +32,7 @@ export const actions = {
   async fetchPosts({ commit, getters, dispatch }) {
     let posts = {};
 
-    await this.$axios.get(config.postsUrl.list, {
+    await this.$axios.get(Vue.prototype.$config.postsUrl.list, {
       params: {
         page: 1
       }
@@ -56,7 +56,7 @@ export const actions = {
    * @returns {Promise<void>}
    */
   async infiniteLoader({ commit, getters, dispatch }, state ) {
-    await this.$axios.get(config.postsUrl.list, {
+    await this.$axios.get(Vue.prototype.$config.postsUrl.list, {
       params: {
         page: getters.getPage
       }
