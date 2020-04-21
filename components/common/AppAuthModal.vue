@@ -20,9 +20,9 @@
                 </button>
               </div>
               <div class="modal-body w-full h-full flex">
-                <div class="w-1/3 bg-no-repeat bg-cover bg-center border-r-2" style="background-image: url('/img/auth-bg.jpg')">
+                <div class="hidden sm:block sm:w-1/3 bg-no-repeat bg-cover bg-center border-r-2" style="background-image: url('/img/auth-bg.jpg')">
                 </div>
-                <div class="w-2/3 p-5 overflow-y-auto">
+                <div class="w-full sm:w-2/3 p-5 tm-max-h-screen overflow-y-auto scroll-thin">
                   <form class="w-full">
                     <div class="mb-4">
                       <app-form-input type="text"
@@ -144,5 +144,9 @@
   .fade-enter,
   .fade-leave-to {
     opacity: 0;
+  }
+
+  .tm-max-h-screen {
+    max-height: calc(100vh - 56px)
   }
 </style>
