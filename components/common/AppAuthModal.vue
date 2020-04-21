@@ -25,28 +25,21 @@
                 <div class="w-2/3 p-5 overflow-y-auto">
                   <form class="w-full">
                     <div class="mb-4">
-                      <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
-                        E-mail
-                      </label>
-                      <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                             id="username"
-                             type="text"
-                             placeholder="E-mail"
-                             v-model="request.email">
+                      <app-form-input type="text"
+                                      :data="request"
+                                      :errors="errors"
+                                      id="email"
+                                      label="E-mail" placeholder="E-mail"/>
                     </div>
                     <div class="mb-6">
-                      <label class="block text-gray-700 text-sm font-bold mb-2" for="password">
-                        Пароль
-                      </label>
-                      <input class="shadow appearance-none border border-red-500 rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
-                             id="password"
-                             type="password"
-                             placeholder="******************"
-                             v-model="request.password">
-                      <p class="text-red-500 text-xs italic">Please choose a password.</p>
+                      <app-form-input type="password"
+                                      :data="request"
+                                      :errors="errors"
+                                      id="password"
+                                      label="Пароль" placeholder="******************"/>
                     </div>
                     <div class="flex items-center justify-between">
-                      <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                      <button class="border-2 rounded-lg border-gray-300 bg-white hover:border-purple-300 focus:border-purple-500 focus:outline-none text-gray-800 font-semibold h-10 px-4  hover:text-purple-500 whitespace-no-wrap focus:outline-none focus:shadow-outline"
                               type="button"
                               @click="doAuth">
                         Войти
@@ -55,6 +48,12 @@
                         Забыли пароль?
                       </a>
                     </div>
+                    <div class="flex items-center justify-center border-t pt-3 mt-3">
+                      <a class="inline-block align-baseline font-bold text-sm text-gray-500 hover:text-purple-800" href="#">
+                        Создать аккаунт
+                      </a>
+                    </div>
+
                   </form>
                 </div>
               </div>
@@ -74,16 +73,19 @@
 <script>
   import {mapActions, mapGetters} from 'vuex';
   import config from "../../plugins";
+  import AppFormInput from "./form/AppFormInput";
 
   export default {
     name: "AppAuthModal",
+    components: {AppFormInput},
     data() {
       return {
         loading: false,
         request: {
           email: null,
           password: null,
-        }
+        },
+        errors: {},
       }
     },
     computed: {
@@ -101,8 +103,11 @@
             console.log(response.data);
           }).catch(error => {
             console.log(error.response.data);
+            if (error.response.status === 422) {
+              this.errors = error.response.data.errors;
+            }
         });
-      }
+      },
     }
   }
 </script>
