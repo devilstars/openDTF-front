@@ -40,6 +40,7 @@ module.exports = {
   ],
   modules: [
     '@nuxtjs/axios',
+    '@nuxtjs/toast',
   ],
   axios: {
     // proxyHeaders: false
@@ -50,5 +51,9 @@ module.exports = {
   plugins: [
     { src: '~/plugins/config.js', ssr: true },
   ],
+  toast: {
+    theme: "outline",
+    duration: 5000
+  }
 }
 

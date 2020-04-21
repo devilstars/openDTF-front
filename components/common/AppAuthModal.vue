@@ -97,13 +97,16 @@
         setShowModalOutside: 'auth-modal/setShowModalOutside'
       }),
       doAuth() {
+        this.errors = {};
         this.$axios.$post('auth/login', this.request)
           .then(response => {
+            this.$toast.success('Успешная авторизация...')
             console.log(response.data);
           }).catch(error => {
             console.log(error.response.data);
             if (error.response.status === 422) {
               this.errors = error.response.data.errors;
+              this.$toast.error('Проверьте введённые данные')
             }
         });
       },
