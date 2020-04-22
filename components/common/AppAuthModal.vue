@@ -41,7 +41,7 @@
                     <div class="flex items-center justify-between">
                       <button class="border-2 rounded-lg border-gray-300 bg-white hover:border-purple-300 focus:border-purple-500 focus:outline-none text-gray-800 font-semibold h-10 px-4  hover:text-purple-500 whitespace-no-wrap focus:outline-none focus:shadow-outline"
                               type="button"
-                              @click="doAuth">
+                              @click="doAuth(request)">
                         Войти
                       </button>
                       <a class="inline-block align-baseline font-bold text-sm text-gray-500 hover:text-purple-800" href="#">
@@ -84,36 +84,38 @@
           email: null,
           password: null,
         },
-        errors: {},
+        // errors: {},
       }
     },
     computed: {
       ...mapGetters({
-        showModal: 'auth-modal/getShowModal'
+        showModal: 'auth-modal/getShowModal',
+        errors: 'modules/user/auth/getErrors'
       })
     },
     methods: {
       ...mapActions({
-        setShowModalOutside: 'auth-modal/setShowModalOutside'
+        setShowModalOutside: 'auth-modal/setShowModalOutside',
+        doAuth: 'modules/user/auth/doAuth'
       }),
-      doAuth() {
-        this.errors = {};
-        this.$axios.$post('auth/login', this.request)
-          .then(response => {
-            this.$toast.success('Успешная авторизация...')
-            console.log(response.data);
-          }).catch(error => {
-            console.log(error.response.data);
-            console.log(error.response);
-            if (error.response.status === 422) {
-              this.errors = error.response.data.errors;
-              this.$toast.error('Проверьте введённые данные')
-            }
-            if (error.response.status === 404) {
-              this.$toast.error(error.response.data.message)
-            }
-        });
-      },
+      // doAuth() {
+      //   this.errors = {};
+      //   this.$axios.$post('auth/login', this.request)
+      //     .then(response => {
+      //       this.$toast.success('Успешная авторизация...')
+      //       console.log(response.data);
+      //     }).catch(error => {
+      //       console.log(error.response.data);
+      //       console.log(error.response);
+      //       if (error.response.status === 422) {
+      //         this.errors = error.response.data.errors;
+      //         this.$toast.error('Проверьте введённые данные')
+      //       }
+      //       if (error.response.status === 404) {
+      //         this.$toast.error(error.response.data.message)
+      //       }
+      //   });
+      // },
     }
   }
 </script>
@@ -140,7 +142,6 @@
   .fade-enter-active {
     -webkit-transition: opacity 2s;
     transition: opacity .3s;
-
   }
 
   .fade-leave-active {
