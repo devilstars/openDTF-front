@@ -18,7 +18,8 @@
     "dayjs": "^1.8.25",
     "nuxt": "^2.12.2",
     "vue-click-outside": "^1.1.0",
-    "vue-infinite-loading": "^2.4.5"
+    "vue-infinite-loading": "^2.4.5",
+    "vuex-persistedstate": "^3.0.1"
   },
   "devDependencies": {
     "@nuxtjs/tailwindcss": "^1.4.0",

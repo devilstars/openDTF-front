@@ -51,6 +51,7 @@ module.exports = {
   plugins: [
     { src: '~/plugins/config.js', ssr: true },
     { src: '~/plugins/axios.js', ssr: true },
+    { src: '~/plugins/localStorage.js', ssr: false },
   ],
   toast: {
     theme: "outline",
