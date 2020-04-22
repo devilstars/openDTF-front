@@ -23,7 +23,7 @@
                 <div class="hidden sm:block sm:w-1/3 bg-no-repeat bg-cover bg-center border-r-2" style="background-image: url('/img/auth-bg.jpg')">
                 </div>
                 <div class="w-full sm:w-2/3 p-5 tm-max-h-screen overflow-y-auto scroll-thin">
-                  <form class="w-full">
+                  <form class="w-full" @keyup.enter="doAuth(request)">
                     <div class="mb-4">
                       <app-form-input type="text"
                                       :data="request"
