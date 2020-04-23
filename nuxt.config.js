@@ -43,10 +43,7 @@ module.exports = {
     '@nuxtjs/toast',
   ],
   axios: {
-    // proxyHeaders: false
     baseURL: 'http://opendtf.test/api',
-    // API_HOST: 'http://opendtf.test',
-    // API_PREFIX: 'api'
   },
   plugins: [
     { src: '~/plugins/config.js', ssr: true },
