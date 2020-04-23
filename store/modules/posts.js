@@ -31,7 +31,7 @@ export const actions = {
    */
   async fetchPosts({ commit, getters, dispatch }) {
     let posts = {};
-    commit('updatePage', 2);
+    // commit('updatePage', 2);
 
     await this.$axios.get(Vue.prototype.$config.postsUrl.list, {
       params: {

@@ -46,6 +46,7 @@ module.exports = {
     baseURL: 'http://opendtf.test/api',
   },
   plugins: [
+    { src: '~/plugins/mixins.js', ssr: true },
     { src: '~/plugins/config.js', ssr: true },
     { src: '~/plugins/axios.js', ssr: true },
     { src: '~/plugins/localStorage.js', ssr: false },

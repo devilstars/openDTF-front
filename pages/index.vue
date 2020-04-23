@@ -43,7 +43,7 @@
     async fetch ({ store, params }) {
       await store.dispatch('modules/posts/fetchPosts');
     },
-    created() {},
+    mounted() {},
     computed: {
       ...mapGetters({
         getPosts: 'modules/posts/getPosts',
