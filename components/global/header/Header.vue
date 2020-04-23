@@ -13,7 +13,8 @@
           <header-sidebar-toggle/>
           <header-search/>
           <header-add-post/>
-          <header-menu-auth/>
+          <header-menu-auth v-if="!checkAuth"/>
+          <header-profile v-if="checkAuth" />
         </div>
       </div>
     </div>
@@ -25,10 +26,11 @@
   import HeaderAddPost from "./HeaderAddPost";
   import HeaderMenuAuth from "./HeaderMenuAuth";
   import HeaderSidebarToggle from "./HeaderSidebarToggle";
+  import HeaderProfile from "./HeaderProfile";
 
   export default {
     name: 'GlobalHeader',
-    components: {HeaderSidebarToggle, HeaderMenuAuth, HeaderAddPost, HeaderSearch},
+    components: {HeaderProfile, HeaderSidebarToggle, HeaderMenuAuth, HeaderAddPost, HeaderSearch},
     props: {}
   }
 </script>

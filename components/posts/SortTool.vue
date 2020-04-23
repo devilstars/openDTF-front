@@ -1,7 +1,11 @@
 <template>
     <div class="flex flex-wrap flex-col-reverse md:flex-row bg-white px-3 py-2 border">
         <div class="w-full md:w-1/3 relative">
-            <a href="#" class="inline-flex items-center text-sm outline-none" @click.prevent="toggleDropdown" @focusout="handleFocusOut" tabindex="0">
+            <a href="#"
+               class="inline-flex items-center text-sm outline-none"
+               @click.prevent="toggleDropdown"
+               @focusout="handleFocusOut"
+               tabindex="0">
                 Популярное
                 <svg class="w-2 h-2 ml-2 text-purple-700 fill-current" version="1.1"  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                      width="284.929px" height="284.929px" viewBox="0 0 284.929 284.929" xml:space="preserve">

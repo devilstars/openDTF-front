@@ -41,10 +41,20 @@ export const mutations = {
   },
   setAbilities(state, abilities) {
     state.abilities = abilities;
+  },
+  doLogout(state) {
+    state.errors = {};
+    state.token = null;
+    state.email = null;
+    state.name = null;
+    state.abilities = null;
   }
 };
 
 export const actions = {
+  doLogout({commit}) {
+    commit('doLogout')
+  },
   async doAuth({commit}, data) {
     commit('setErrors', {})
     await this.$axios.post('auth/login', data)

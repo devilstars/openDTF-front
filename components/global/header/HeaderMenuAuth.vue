@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <button class="ml-3 text-gray-800 inline-flex items-center h-10 font-semibold hover:text-purple-500 group"
+  <div class="leading-none ml-3">
+    <button class="text-gray-800 inline-flex items-center h-10 font-semibold hover:text-purple-500 group"
             @click="toggleShowModal">
       <svg x="0px" y="0px" width="612px" height="612px" viewBox="0 0 612 612"
            class="text-gray-600 h-8 w-8 fill-current mr-2 group-hover:text-purple-500">
