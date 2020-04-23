@@ -31,8 +31,14 @@
     },
     computed: {
       ...mapGetters({
-        showSidebar: 'sidebar/getShowSidebar'
+        showSidebar: 'sidebar/getShowSidebar',
+        token: 'modules/user/auth/getToken'
       })
+    },
+    watch: {
+      token() {
+        this.$axios.setToken(this.token, 'Bearer');
+      }
     },
     methods: {
       ...mapActions({

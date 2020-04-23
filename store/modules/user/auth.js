@@ -52,8 +52,14 @@ export const mutations = {
 };
 
 export const actions = {
-  doLogout({commit}) {
-    commit('doLogout')
+   doLogout({commit}, data) {
+    // commit('doLogout')
+     this.$axios.post('auth/logout', data)
+      .then(response => {
+        console.log(response.data)
+      }).catch(error => {
+        console.log(error.response.data)
+      });
   },
   async doAuth({commit}, data) {
     commit('setErrors', {})
