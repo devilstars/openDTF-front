@@ -52,14 +52,14 @@ export const mutations = {
 };
 
 export const actions = {
-   doLogout({commit}, data) {
-    // commit('doLogout')
-     this.$axios.post('auth/logout', data)
+  doLogout({commit}, data) {
+    this.$axios.post('auth/logout', data)
       .then(response => {
-        console.log(response.data)
+        commit('doLogout')
+        this.$toast.info("Выход из приложения")
       }).catch(error => {
-        console.log(error.response.data)
-      });
+        this.$toast.error(error.response.data.message)
+    });
   },
   async doAuth({commit}, data) {
     commit('setErrors', {})
