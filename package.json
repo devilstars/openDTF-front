@@ -13,9 +13,9 @@
     "precommit": "npm run lint"
   },
   "dependencies": {
-    "@nuxtjs/axios": "^5.10.1",
+    "@nuxtjs/axios": "^5.10.3",
     "@nuxtjs/toast": "^3.3.0",
-    "dayjs": "^1.8.25",
+    "dayjs": "^1.8.26",
     "nuxt": "^2.12.2",
     "vue-click-outside": "^1.1.0",
     "vue-infinite-loading": "^2.4.5",
