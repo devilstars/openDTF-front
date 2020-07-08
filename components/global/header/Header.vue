@@ -13,8 +13,10 @@
           <header-sidebar-toggle/>
           <header-search/>
           <header-add-post/>
-          <header-menu-auth v-if="!checkAuth"/>
-          <header-profile v-if="checkAuth" />
+          <template v-if="!loading">
+            <header-menu-auth v-if="!checkAuth"/>
+            <header-profile v-if="checkAuth" />
+          </template>
         </div>
       </div>
     </div>
@@ -31,7 +33,15 @@
   export default {
     name: 'GlobalHeader',
     components: {HeaderProfile, HeaderSidebarToggle, HeaderMenuAuth, HeaderAddPost, HeaderSearch},
-    props: {}
+    props: {},
+    data() {
+      return {
+        loading: true,
+      }
+    },
+    mounted() {
+      this.loading = false;
+    }
   }
 </script>
 
