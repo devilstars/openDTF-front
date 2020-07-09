@@ -61,6 +61,11 @@ export const actions = {
         this.$toast.error(error.response.data.message)
     });
   },
+
+  forceLogout({commit}) {
+    commit('doLogout')
+  },
+
   async doAuth({commit}, data) {
     commit('setErrors', {})
     await this.$axios.post(Vue.prototype.$config.usersUrl.auth, data)
@@ -82,6 +87,7 @@ export const actions = {
         }
       });
   },
+
   async doRegister({commit}, data) {
     commit('setErrors', {})
     await this.$axios.post(Vue.prototype.$config.usersUrl.register, data)
@@ -102,5 +108,5 @@ export const actions = {
           this.$toast.error(error.response.data.message)
         }
       });
-  }
+  },
 };

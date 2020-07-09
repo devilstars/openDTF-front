@@ -49,7 +49,7 @@
         doLogout: 'modules/user/auth/doLogout'
       }),
       logout() {
-        this.doLogout({test: 'test'});
+        this.doLogout();
         this.$router.push('/');
       },
       toggleDropdown() {
