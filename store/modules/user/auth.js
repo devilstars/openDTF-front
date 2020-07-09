@@ -63,10 +63,9 @@ export const actions = {
   },
   async doAuth({commit}, data) {
     commit('setErrors', {})
-    await this.$axios.post('auth/login', data)
+    await this.$axios.post(Vue.prototype.$config.usersUrl.auth, data)
       .then(response => {
         this.$toast.success('Успешная авторизация...')
-        console.log(response.data); /* TODO убрать */
 
         commit('setToken', response.data.token);
         commit('setEmail', response.data.email);
@@ -74,8 +73,27 @@ export const actions = {
         commit('setAbilities', response.data.abilities);
 
       }).catch(error => {
-        console.log(error.response.data); /* TODO убрать */
-        console.log(error.response); /* TODO убрать */
+        if (error.response.status === 422) {
+          commit('setErrors', error.response.data.errors)
+          this.$toast.error('Проверьте введённые данные')
+        }
+        if (error.response.status === 404) {
+          this.$toast.error(error.response.data.message)
+        }
+      });
+  },
+  async doRegister({commit}, data) {
+    commit('setErrors', {})
+    await this.$axios.post(Vue.prototype.$config.usersUrl.register, data)
+      .then(response => {
+        this.$toast.success('Успешная регистрация...')
+
+        commit('setToken', response.data.token);
+        commit('setEmail', response.data.email);
+        commit('setName', response.data.name);
+        commit('setAbilities', response.data.abilities);
+
+      }).catch(error => {
         if (error.response.status === 422) {
           commit('setErrors', error.response.data.errors)
           this.$toast.error('Проверьте введённые данные')

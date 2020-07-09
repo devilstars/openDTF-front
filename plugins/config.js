@@ -7,5 +7,9 @@ Vue.prototype.$config = {
 
   postsUrl: {
     list: 'posts'
+  },
+  usersUrl: {
+    auth: 'auth/login',
+    register: 'auth/register',
   }
 }

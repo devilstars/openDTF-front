@@ -2,8 +2,7 @@
   <transition name="fade">
     <div v-if="showModal" class="fixed inset-0 z-30">
       <!--       background -->
-      <div class="bg-black opacity-25 fixed inset-0 w-full h-full z-20" @click="setShowModalOutside">
-      </div>
+      <div class="bg-black opacity-25 fixed inset-0 w-full h-full z-20" @click="setShowModalOutside" />
       <!--          -->
       <main class="flex flex-col items-center justify-center h-full w-full">
         <transition name="fade-up-down">
@@ -22,44 +21,95 @@
               <div class="modal-body w-full h-full flex">
                 <div class="hidden sm:block sm:w-1/3 bg-no-repeat bg-cover bg-center border-r-2" style="background-image: url('/img/auth-bg.jpg')">
                 </div>
-                <div class="w-full sm:w-2/3 p-5 tm-max-h-screen overflow-y-auto scroll-thin">
-                  <form class="w-full" @keyup.enter="doAuth(request)">
-                    <div class="mb-4">
-                      <app-form-input type="text"
-                                      :data="request"
-                                      :errors="errors"
-                                      id="email"
-                                      label="E-mail" placeholder="E-mail"/>
-                    </div>
-                    <div class="mb-6">
-                      <app-form-input type="password"
-                                      :data="request"
-                                      :errors="errors"
-                                      id="password"
-                                      label="Пароль" placeholder="******************"/>
-                    </div>
-                    <div class="flex items-center justify-between">
-                      <button class="border-2 rounded-lg border-gray-300 bg-white hover:border-purple-300 focus:border-purple-500 focus:outline-none text-gray-800 font-semibold h-10 px-4  hover:text-purple-500 whitespace-no-wrap focus:outline-none focus:shadow-outline"
-                              type="button"
-                              @click="doAuth(request)">
-                        Войти
-                      </button>
-                      <a class="inline-block align-baseline font-bold text-sm text-gray-500 hover:text-purple-800" href="#">
-                        Забыли пароль?
-                      </a>
-                    </div>
-                    <div class="flex items-center justify-center border-t pt-3 mt-3">
-                      <a class="inline-block align-baseline font-bold text-sm text-gray-500 hover:text-purple-800" href="#">
-                        Создать аккаунт
-                      </a>
-                    </div>
 
-                  </form>
-                </div>
+                <!-- login -->
+                <template v-if="mode === 0">
+                  <div class="w-full sm:w-2/3 p-5 tm-max-h-screen overflow-y-auto scroll-thin">
+                    <form class="w-full" @keyup.enter="doAuth(request)">
+                      <div class="mb-4">
+                        <app-form-input type="email"
+                                        :data="request"
+                                        :errors="errors"
+                                        id="email"
+                                        label="E-mail" placeholder="E-mail"/>
+                      </div>
+                      <div class="mb-6">
+                        <app-form-input type="password"
+                                        :data="request"
+                                        :errors="errors"
+                                        id="password"
+                                        label="Пароль" placeholder="******************"/>
+                      </div>
+                      <div class="flex items-center justify-between">
+                        <button class="border-2 rounded-lg border-gray-300 bg-white hover:border-purple-300 focus:border-purple-500 focus:outline-none text-gray-800 font-semibold h-10 px-4  hover:text-purple-500 whitespace-no-wrap focus:outline-none focus:shadow-outline"
+                                type="button"
+                                @click="doAuth(request)">
+                          Войти
+                        </button>
+                        <a class="inline-block align-baseline font-bold text-sm text-gray-500 hover:text-purple-800" href="#">
+                          Забыли пароль?
+                        </a>
+                      </div>
+                      <div class="flex items-center justify-center border-t pt-3 mt-3">
+                        <a class="inline-block align-baseline font-bold text-sm text-gray-500 hover:text-purple-800" href="#" @click.prevent="mode = 1">
+                          Создать аккаунт
+                        </a>
+                      </div>
+                    </form>
+                  </div>
+                </template>
+                <!-- end of login -->
+
+                <!-- register -->
+                <template v-if="mode === 1">
+                  <div class="w-full sm:w-2/3 p-5 tm-max-h-screen overflow-y-auto scroll-thin">
+                    <form class="w-full" @keyup.enter="doRegister(request)">
+                      <div class="mb-4">
+                        <app-form-input type="email"
+                                        :data="request"
+                                        :errors="errors"
+                                        id="email"
+                                        label="E-mail" placeholder="E-mail"/>
+                      </div>
+                      <div class="mb-6">
+                        <div class="mb-4">
+                          <app-form-input type="text"
+                                          :data="request"
+                                          :errors="errors"
+                                          id="name"
+                                          label="Ник" placeholder="Ник"/>
+                        </div>
+                        <app-form-input type="password"
+                                        :data="request"
+                                        :errors="errors"
+                                        id="password"
+                                        label="Пароль" placeholder="******************"/>
+                      </div>
+                      <div class="mb-6">
+                        <app-form-input type="password"
+                                        :data="request"
+                                        :errors="errors"
+                                        id="password_confirmation"
+                                        label="Пароль ещё раз" placeholder="******************"/>
+                      </div>
+                      <div class="flex items-center justify-between">
+                        <button class="border-2 rounded-lg border-gray-300 bg-white hover:border-purple-300 focus:border-purple-500 focus:outline-none text-gray-800 font-semibold h-10 px-4  hover:text-purple-500 whitespace-no-wrap focus:outline-none focus:shadow-outline"
+                                type="button"
+                                @click="doRegister(request)">
+                          Зарегистрироваться
+                        </button>
+                      </div>
+                      <div class="flex items-center justify-center border-t pt-3 mt-3">
+                        <a class="inline-block align-baseline font-bold text-sm text-gray-500 hover:text-purple-800" href="#" @click.prevent="mode = 0">
+                          Войти
+                        </a>
+                      </div>
+                    </form>
+                  </div>
+                </template>
+                <!-- end of register -->
+
               </div>
-<!--              <div class="modal-footer py-3 px-5 border0-t text-right">-->
-<!--                <button class="bg-green-500 px-5 py-2 text-white">OK</button>-->
-<!--              </div>-->
             </div>
           </div>
         </transition>
@@ -82,8 +132,11 @@
         loading: false,
         request: {
           email: null,
+          name: null,
           password: null,
+          password_confirmation: null,
         },
+        mode: 0, // 0 - вход, 1 - регистрация, 2 - восстановление пароля
         // errors: {},
       }
     },
@@ -96,7 +149,8 @@
     methods: {
       ...mapActions({
         setShowModalOutside: 'auth-modal/setShowModalOutside',
-        doAuth: 'modules/user/auth/doAuth'
+        doAuth: 'modules/user/auth/doAuth',
+        doRegister: 'modules/user/auth/doRegister',
       }),
     }
   }
