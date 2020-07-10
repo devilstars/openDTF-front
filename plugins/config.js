@@ -11,5 +11,8 @@ Vue.prototype.$config = {
   usersUrl: {
     auth: 'auth/login',
     register: 'auth/register',
+  },
+  categoriesUrl: {
+    list: 'categories'
   }
 }
