@@ -82,6 +82,9 @@ export const actions = {
           commit('setErrors', error.response.data.errors)
           this.$toast.error('Проверьте введённые данные')
         }
+        if (error.response.status === 403) {
+          this.$toast.error(error.response.data.message)
+        }
         if (error.response.status === 404) {
           this.$toast.error(error.response.data.message)
         }
