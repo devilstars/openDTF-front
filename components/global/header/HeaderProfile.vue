@@ -20,6 +20,11 @@
             <li>
               <a href="#" class="text-sm px-2 py-1 block hover:bg-gray-100">Элемент #04</a>
             </li>
+            <li v-if="checkAbilities(['user:list'])">
+              <nuxt-link :to="{ name: 'admin-users' }" class="text-sm px-2 py-1 block hover:bg-gray-100">
+                Пользователи
+              </nuxt-link>
+            </li>
             <li>
               <a href="#" class="text-sm px-2 py-1 block hover:bg-gray-100 bg-red-100" @click.prevent="logout">Выход</a>
             </li>

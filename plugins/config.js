@@ -14,5 +14,13 @@ Vue.prototype.$config = {
   },
   categoriesUrl: {
     list: 'categories'
+  },
+
+  /* dashboard urls  */
+  dashboardUrls: {
+    usersUrl: {
+      list: 'dashboard/users'
+    }
   }
+  /* end of dashboard urls */
 }
