@@ -13,16 +13,16 @@
     "precommit": "npm run lint"
   },
   "dependencies": {
-    "@nuxtjs/axios": "^5.12.0",
-    "@nuxtjs/toast": "^3.3.0",
-    "dayjs": "^1.8.29",
-    "nuxt": "^2.13.3",
+    "@nuxtjs/axios": "^5.12.2",
+    "@nuxtjs/toast": "^3.3.1",
+    "dayjs": "^1.8.35",
+    "nuxt": "^2.14.5",
     "vue-click-outside": "^1.1.0",
     "vue-infinite-loading": "^2.4.5",
-    "vuex-persistedstate": "^3.0.1"
+    "vuex-persistedstate": "^3.1.0"
   },
   "devDependencies": {
-    "@nuxtjs/tailwindcss": "^2.0.0",
+    "@nuxtjs/tailwindcss": "^2.1.1",
     "babel-eslint": "^10.1.0",
     "eslint": "^4.19.1",
     "eslint-friendly-formatter": "^4.0.1",
