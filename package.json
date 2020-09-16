@@ -22,7 +22,7 @@
     "vuex-persistedstate": "^3.1.0"
   },
   "devDependencies": {
-    "@nuxtjs/tailwindcss": "^2.1.1",
+    "@nuxtjs/tailwindcss": "^3.0.2",
     "babel-eslint": "^10.1.0",
     "eslint": "^4.19.1",
     "eslint-friendly-formatter": "^4.0.1",
