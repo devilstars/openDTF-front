@@ -46,6 +46,7 @@
                                 @click="doAuth(request)">
                           Войти
                         </button>
+                        <a href="#" @click.prevent="login()">++++</a>
                         <a class="inline-block align-baseline font-bold text-sm text-gray-500 hover:text-purple-800" href="#">
                           Забыли пароль?
                         </a>
@@ -152,6 +153,14 @@
         doAuth: 'modules/user/auth/doAuth',
         doRegister: 'modules/user/auth/doRegister',
       }),
+      login() {
+        this.$auth.loginWith('laravelSanctum', {
+          data: {
+            email: this.request.email,
+            password:  this.request.password
+          }
+        })
+      }
     }
   }
 </script>

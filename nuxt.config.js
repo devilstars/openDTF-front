@@ -40,10 +40,22 @@ module.exports = {
   ],
   modules: [
     '@nuxtjs/axios',
+    '@nuxtjs/auth-next',
     '@nuxtjs/toast',
   ],
   axios: {
     baseURL: 'http://opendtf.test/api',
+  },
+  auth: {
+    strategies: {
+      'laravelSanctum': {
+        provider: 'laravel/sanctum',
+        url: 'http://opendtf.test'
+      },
+    }
+  },
+  router: {
+    middleware: ['auth']
   },
   plugins: [
     { src: '~/plugins/mixins.js', ssr: true },

@@ -32,6 +32,7 @@
   import { mapGetters, mapActions } from "vuex";
 
   export default {
+    auth: false,
     components: {
       PostItem,
       SortTool,
