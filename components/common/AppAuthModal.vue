@@ -122,47 +122,61 @@
 </template>
 
 <script>
-  import {mapActions, mapGetters} from 'vuex';
-  import AppFormInput from "./form/AppFormInput";
+import {mapActions, mapGetters} from 'vuex';
+import AppFormInput from "./form/AppFormInput";
 
-  export default {
-    name: "AppAuthModal",
-    components: {AppFormInput},
-    data() {
-      return {
-        loading: false,
-        request: {
-          email: null,
-          name: null,
-          password: null,
-          password_confirmation: null,
-        },
-        mode: 0, // 0 - вход, 1 - регистрация, 2 - восстановление пароля
-        // errors: {},
-      }
-    },
-    computed: {
-      ...mapGetters({
-        showModal: 'auth-modal/getShowModal',
-        errors: 'modules/user/auth/getErrors'
+export default {
+  name: "AppAuthModal",
+  components: {AppFormInput},
+  data() {
+    return {
+      loading: false,
+      request: {
+        email: null,
+        name: null,
+        password: null,
+        password_confirmation: null,
+      },
+      mode: 0, // 0 - вход, 1 - регистрация, 2 - восстановление пароля
+      // errors: {},
+    }
+  },
+  computed: {
+    ...mapGetters({
+      showModal: 'auth-modal/getShowModal',
+      errors: 'modules/user/auth/getErrors'
+    })
+  },
+  methods: {
+    ...mapActions({
+      setShowModalOutside: 'auth-modal/setShowModalOutside',
+      doAuth: 'modules/user/auth/doAuth',
+      doRegister: 'modules/user/auth/doRegister',
+    }),
+    login() {
+      this.$auth.loginWith('laravelSanctum', {
+        data: {
+          email: this.request.email,
+          password: this.request.password
+        }
+      }).then(response => {
+        this.$toast.success('Успешная авторизация...')
       })
-    },
-    methods: {
-      ...mapActions({
-        setShowModalOutside: 'auth-modal/setShowModalOutside',
-        doAuth: 'modules/user/auth/doAuth',
-        doRegister: 'modules/user/auth/doRegister',
-      }),
-      login() {
-        this.$auth.loginWith('laravelSanctum', {
-          data: {
-            email: this.request.email,
-            password:  this.request.password
+        .catch(error => {
+          if (error.response.status === 422) {
+            // commit('setErrors', error.response.data.errors)
+            this.$toast.error('Проверьте введённые данные')
+          }
+          if (error.response.status === 403) {
+            this.$toast.error(error.response.data.message)
+          }
+          if (error.response.status === 404) {
+            this.$toast.error(error.response.data.message)
           }
         })
-      }
     }
   }
+}
 </script>
 
 <style scoped>

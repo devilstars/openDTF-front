@@ -45,6 +45,7 @@ module.exports = {
   ],
   axios: {
     baseURL: 'http://opendtf.test/api',
+    withCredentials: true
   },
   auth: {
     strategies: {
