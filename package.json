@@ -17,6 +17,7 @@
     "@nuxtjs/toast": "^3.3.1",
     "dayjs": "^1.8.36",
     "nuxt": "^2.14.6",
+    "secure-ls": "^1.2.6",
     "vue-click-outside": "^1.1.0",
     "vue-infinite-loading": "^2.4.5",
     "vuex-persistedstate": "^3.1.0"
