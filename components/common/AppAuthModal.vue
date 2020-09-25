@@ -42,8 +42,7 @@
                       </div>
                       <div class="flex items-center justify-between">
                         <button class="border-2 rounded-lg border-gray-300 bg-white hover:border-purple-300 focus:border-purple-500 focus:outline-none text-gray-800 font-semibold h-10 px-4  hover:text-purple-500 whitespace-no-wrap focus:outline-none focus:shadow-outline"
-                                type="button"
-                                @click="doAuth(request)">
+                                type="button">
                           Войти
                         </button>
                         <a class="inline-block align-baseline font-bold text-sm text-gray-500 hover:text-purple-800" href="#">

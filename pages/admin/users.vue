@@ -6,12 +6,20 @@
 
 <script>
 import Vue from "vue";
+import userMixin from "@/mixins/userMixin";
 
 export default {
   name: "users",
+  middleware: 'checkAbilities',
+  mixins: [
+    userMixin
+  ],
   head: {
     title: "[Dashboard] Пользователи"
   },
+  created() {
+    this.checkAbilitiesOrFail(['user:list2']);
+  }
   // async asyncData({ params, $axios }) {
   //   return await $axios.post(Vue.prototype.$config.dashboardUrls.usersUrl.list)
   //     .then(response => {

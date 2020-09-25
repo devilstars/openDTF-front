@@ -18,6 +18,16 @@ export default {
       };
 
       return abilities.every(rule);
+    },
+
+    checkAbilitiesOrFail(abilities) {
+      if (abilities && process.client) {
+        // window.onNuxtReady(() => {
+          if (!this.checkAbilities(abilities)) {
+            this.$toast.error('Some error');
+          }
+        // })
+      }
     }
   }
 }
