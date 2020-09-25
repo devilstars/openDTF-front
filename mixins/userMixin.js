@@ -13,11 +13,14 @@ export default {
   },
   methods: {
     checkAbilities(abilities) {
-      let rule = (e, index, array) => {
-        return this.abilities.includes(e);
-      };
+      if (this.abilities) {
+        let rule = (e, index, array) => {
+          return this.abilities.includes(e);
+        };
 
-      return abilities.every(rule);
+        return abilities.every(rule);
+      }
+      return false;
     },
 
     checkAbilitiesOrFail(abilities) {

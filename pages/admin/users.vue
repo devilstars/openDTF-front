@@ -10,7 +10,7 @@ import userMixin from "@/mixins/userMixin";
 
 export default {
   name: "users",
-  middleware: 'checkAbilities',
+  // middleware: 'checkAbilities',
   mixins: [
     userMixin
   ],
